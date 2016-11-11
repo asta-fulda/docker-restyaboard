@@ -1,7 +1,7 @@
 Docker Restyaboard
 ==============================
 
-Build Restyaboard in Docker.
+This image includes a Restyaboard using postgres and elasticsearch.
 
 * Restyaboard  
   http://restya.com/board/
@@ -18,32 +18,18 @@ Build image and Run container using docker-compose.
 ``` bash
 git clone https://github.com/namikingsoft/docker-restyaboard.git
 cd docker-restyaboard
-
-docker-compose up -d
+docker build .
 ```
-
-Please wait a few minutes to complete initialize.
-
-
-Check URL
-------------------------------
-
-```
-http://(ServerIP):1234
-
-Username: admin
-Password: restya
-
-Username: user
-Password: restya
-```
-
 
 Change Restyaboard Version
 ------------------------------
 
-Edit restyaboard/Dockerfile.  
+Currently running **v3.0**
+
+To change that edit restyaboard/Dockerfile.  
 Available version is https://github.com/RestyaPlatform/board/releases
+
+Or pass a build variable:
 
 ```
 ENV restyaboard_version=REPLACE_ME
@@ -52,15 +38,14 @@ ENV restyaboard_version=REPLACE_ME
 In case of upgrade version, rebuild image and recreate container.
 
 ```sh
-docker-compose build
-docker-compose up -d
+docker build
 ```
 
 If you want to upgrade database, e.g.
 (recommend to backup database before upgrade)
 
 ```sh
-docker-compose run --rm restyaboard bash
+docker run --rm restyaboard bash
 
 export PGHOST=$POSTGRES_PORT_5432_TCP_ADDR
 export PGPORT=$POSTGRES_PORT_5432_TCP_PORT
@@ -72,7 +57,6 @@ psql -d restyaboard -f sql/upgrade-0.1.4-0.1.5.sql
 ...
 exit
 ```
-
 
 License
 ------------------------------
