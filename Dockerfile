@@ -29,6 +29,8 @@ RUN cp -R media /tmp/ \
 
 # volume
 VOLUME /usr/share/nginx/html/media
+VOLUME /usr/share/elasticsearch/data
+VOLUME /var/lib/postgresql/data
 
 # entry point
 COPY docker-entrypoint.sh /
