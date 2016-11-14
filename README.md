@@ -16,7 +16,7 @@ Quick Start
 Build image and Run container using docker-compose.
 
 ``` bash
-git clone https://github.com/namikingsoft/docker-restyaboard.git
+git clone https://github.com/asta-fulda/docker-restyaboard.git
 cd docker-restyaboard
 docker build .
 ```
@@ -36,6 +36,7 @@ ENV restyaboard_version=REPLACE_ME
 ```
 
 In case of upgrade version, rebuild image and recreate container.
+
 
 ```sh
 docker build
