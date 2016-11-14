@@ -41,12 +41,11 @@ RUN { \
 		echo '0 * * * * php /usr/share/nginx/htmlserver/php/shell/periodic_chat_email_notification.sh'; \
 	} > /var/spool/cron/crontabs/root
 
-COPY run.sh /usr/local/bin
-
-VOLUME /etc/restyaboard /usr/share/nginx/html/media
+COPY run.sh /
+RUN chmod +x /run.sh
 
 WORKDIR /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["run.sh"]
+CMD ["/run.sh"]
